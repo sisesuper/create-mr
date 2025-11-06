@@ -66,7 +66,7 @@ export default class MergeProvider implements vscode.WebviewViewProvider {
                 case 'setting':
                     vscode.commands.executeCommand(
                         'workbench.action.openSettings',
-                        `gitlabmrt`,
+                        `create-mr`,
                     );
                     break;
                 case 'repoChange':
@@ -378,7 +378,7 @@ export default class MergeProvider implements vscode.WebviewViewProvider {
     }
 
     getConfig() {
-        const { instanceUrl, token } = vscode.workspace.getConfiguration('gitlabmrt');
+        const { instanceUrl, token } = vscode.workspace.getConfiguration('create-mr');
         this.config = { instanceUrl, token };
     }
 

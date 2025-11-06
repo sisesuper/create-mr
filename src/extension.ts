@@ -25,8 +25,8 @@ export function activate(context: vscode.ExtensionContext) {
 	};
 
 	context.subscriptions.push(
-		register('gitlabmrt.refresh', () => provider.init(undefined, true)),
-		register('gitlabmrt.repository', openGitPage),
-		register('gitlabmrt.merge.requests', () => openGitPage(true)),
+		register('create-mr.refresh', () => provider.init(undefined, true)),
+		register('create-mr.repository', openGitPage),
+		register('create-mr.merge.requests', () => openGitPage(true)),
 	);
 }

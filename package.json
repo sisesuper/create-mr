@@ -36,14 +36,14 @@
 			]
 		},
 		"configuration": {
-			"title": "GitlabMrt",
+			"title": "Create MR",
 			"properties": {
-				"gitlabmrt.instanceUrl": {
+				"create-mr.instanceUrl": {
 					"type": "string",
 					"default": "https://gitlab.com",
 					"description": "Your GitLab instance URL"
 				},
-				"gitlabmrt.token": {
+				"create-mr.token": {
 					"type": "string",
 					"default": "",
 					"description": "Access token to use to connect to the Gitlab API"
@@ -53,15 +53,15 @@
 		"menus": {
 			"view/title": [
 				{
-					"command": "gitlabmrt.repository",
+					"command": "create-mr.repository",
 					"when": "view == gitlab.mrt"
 				},
 				{
-					"command": "gitlabmrt.merge.requests",
+					"command": "create-mr.merge.requests",
 					"when": "view == gitlab.mrt"
 				},
 				{
-					"command": "gitlabmrt.refresh",
+					"command": "create-mr.refresh",
 					"when": "view == gitlab.mrt",
 					"group": "navigation"
 				}
@@ -69,15 +69,15 @@
 		},
 		"commands": [
 			{
-				"command": "gitlabmrt.repository",
+				"command": "create-mr.repository",
 				"title": "Repository"
 			},
 			{
-				"command": "gitlabmrt.merge.requests",
+				"command": "create-mr.merge.requests",
 				"title": "Merge Requests"
 			},
 			{
-				"command": "gitlabmrt.refresh",
+				"command": "create-mr.refresh",
 				"title": "Refresh",
 				"icon": "$(refresh)"
 			}
