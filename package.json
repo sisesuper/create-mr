@@ -1,0 +1,118 @@
+{
+	"name": "create-mr",
+	"displayName": "create mr",
+	"description": "Create MRs in Gitlab from VS Code",
+	"publisher": "yanhao",
+	"version": "0.0.1",
+	"icon": "src/assets/icon.png",
+	"repository": "https://gitee.com/sisesuper/create-mr.git",
+	"engines": {
+		"vscode": "^1.61.1"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onView:gitlab.mrt"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"views": {
+			"gitlab-mrt": [
+				{
+					"type": "webview",
+					"id": "gitlab.mrt",
+					"name": "New Merge Request"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "gitlab-mrt",
+					"title": "Gitlab Mrt",
+					"icon": "src/assets/gitlab.svg"
+				}
+			]
+		},
+		"configuration": {
+			"title": "GitlabMrt",
+			"properties": {
+				"gitlabmrt.instanceUrl": {
+					"type": "string",
+					"default": "https://gitlab.com",
+					"description": "Your GitLab instance URL"
+				},
+				"gitlabmrt.token": {
+					"type": "string",
+					"default": "",
+					"description": "Access token to use to connect to the Gitlab API"
+				}
+			}
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "gitlabmrt.repository",
+					"when": "view == gitlab.mrt"
+				},
+				{
+					"command": "gitlabmrt.merge.requests",
+					"when": "view == gitlab.mrt"
+				},
+				{
+					"command": "gitlabmrt.refresh",
+					"when": "view == gitlab.mrt",
+					"group": "navigation"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "gitlabmrt.repository",
+				"title": "Repository"
+			},
+			{
+				"command": "gitlabmrt.merge.requests",
+				"title": "Merge Requests"
+			},
+			{
+				"command": "gitlabmrt.refresh",
+				"title": "Refresh",
+				"icon": "$(refresh)"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+	    "package": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --mode production --devtool hidden-source-map",
+		"test-compile": "tsc -p ./",
+		"test-watch": "tsc -watch -p ./",
+		"pretest": "npm run test-compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js",
+		"publish": "vsce publish"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.61.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"eslint": "^7.27.0",
+		"glob": "^7.1.7",
+		"iconv-lite": "^0.6.3",
+		"mocha": "^8.4.0",
+		"ts-loader": "^9.2.2",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2",
+		"webpack": "^5.38.1",
+		"webpack-cli": "^4.7.0"
+	},
+	"dependencies": {
+		"axios": "^0.23.0"
+	}
+}
