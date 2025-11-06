@@ -890,28 +890,187 @@ Lines added: 2, lines removed: 2
 
 ---
 
-<tool-use data-tool-type="unknown" data-tool-name="search_replace">
+<tool-use data-tool-type="write" data-tool-name="search_replace">
+
+<details><summary>Tool use: **code_edit** • Edit file: package.json</summary>
+
+**Chunk 1**
+Lines added: 3, lines removed: 3
+
+```diff
+@@ -55,13 +55,13 @@
+  				{
+  					&quot;command&quot;: &quot;create-mr.repository&quot;,
+- 					&quot;when&quot;: &quot;view == gitlab.mrt&quot;
++ 					&quot;when&quot;: &quot;view == create-mr&quot;
+  				},
+  				{
+  					&quot;command&quot;: &quot;create-mr.merge.requests&quot;,
+- 					&quot;when&quot;: &quot;view == gitlab.mrt&quot;
++ 					&quot;when&quot;: &quot;view == create-mr&quot;
+  				},
+  				{
+  					&quot;command&quot;: &quot;create-mr.refresh&quot;,
+- 					&quot;when&quot;: &quot;view == gitlab.mrt&quot;,
++ 					&quot;when&quot;: &quot;view == create-mr&quot;,
+  					&quot;group&quot;: &quot;navigation&quot;
+  				}
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<tool-use data-tool-type="generic" data-tool-name="todo_write">
+<details><summary>Tool use: **todo_write** • Todo List</summary>
+
+- [x] 替换 package.json 中的 gitlab.mrt 和 gitlab-mrt
+- [-] 替换 src/provider.ts 中的 viewType
+- [ ] 替换 README.md 中的标题
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="search_replace">
+
+<details><summary>Tool use: **code_edit** • Edit file: src/provider.ts</summary>
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -10,5 +10,5 @@
+  export default class MergeProvider implements vscode.WebviewViewProvider {
+  
+-     public static readonly viewType: string = &#39;gitlab.mrt&#39;;
++     public static readonly viewType: string = &#39;create-mr&#39;;
+      private _view?: vscode.WebviewView;
+      private git?: GitExtensionWrap;
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<tool-use data-tool-type="generic" data-tool-name="todo_write">
+<details><summary>Tool use: **todo_write** • Todo List</summary>
+
+- [x] 替换 package.json 中的 gitlab.mrt 和 gitlab-mrt
+- [x] 替换 src/provider.ts 中的 viewType
+- [-] 替换 README.md 中的标题
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="search_replace">
+
+<details><summary>Tool use: **code_edit** • Edit file: README.md</summary>
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -1,3 +1,3 @@
+- # gitlab-mrt README
++ # create-mr README
+  
+  Gitlab Merge Request Helper fo VS Code.
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<tool-use data-tool-type="generic" data-tool-name="todo_write">
+<details><summary>Tool use: **todo_write** • Todo List</summary>
+
+- [x] 替换 package.json 中的 gitlab.mrt 和 gitlab-mrt
+- [x] 替换 src/provider.ts 中的 viewType
+- [x] 替换 README.md 中的标题
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="grep" data-tool-name="grep">
 <details>
-<summary>Tool use: **search_replace**</summary>
+<summary>Tool use: **grep** • Grep for "gitlab.*mrt" • 0 matches</summary>
+
+Output mode: content
 
 
-Parameters:
+_No matches found_
 
-```json
-{
-  &quot;relativeWorkspacePath&quot;: &quot;package.json&quot;
-}
-```
-Additional data:
+</details>
+</tool-use>
 
-```json
-{
-  &quot;codeblockId&quot;: &quot;4dd97529-591f-4c19-84b2-6479b5af3ba0&quot;
-}
-```
-User decision: **accepted**
+---
 
-Status: **loading**
+
+
+---
+
+
+检查是否还有遗漏的用户可见文本：
+
+
+---
+
+<tool-use data-tool-type="grep" data-tool-name="grep">
+<details>
+<summary>Tool use: **grep** • Grep for "Gitlab" • 11 matches</summary>
+
+Output mode: content
+
+
+| File | Content | Line |
+|------|------|------|
+| `.\README.md` | `Gitlab Merge Request Helper fo VS Code.` | L3 |
+| `.\README.md` | `+ `create-mr.token`: Access token to use to connect to the Gitlab.com API. Create one by going to Profile Settings -> Access Tokens.` | L13 |
+| `.\package.json` | `"description": "Create MRs in Gitlab from VS Code",` | L4 |
+| `.\package.json` | `"description": "Access token to use to connect to the Gitlab API"` | L49 |
+| `.\src\type.ts` | `export interface GitlabProject \{` | L356 |
+| `.\src\type.ts` | `export interface GitlabBranch \{` | L363 |
+| `.\src\type.ts` | `export interface GitlabUsers \{` | L370 |
+| `.\src\api.ts` | `import \{ MRParams, GitlabProject, GitlabBranch, GitlabUsers, CreateMrResponse, ExtensionConfig \} from './type';` | L2 |
+| `.\src\api.ts` | `return this.axios.get<GitlabProject[]>(`/projects`, \{` | L37 |
+| `.\src\api.ts` | `return this.axios.get<GitlabBranch[]>(`/projects/$\{this.id\}/repository/branches`);` | L55 |
+| `.\src\api.ts` | `return this.axios.get<GitlabUsers[]>('/users', \{` | L59 |
+
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="generic" data-tool-name="read_lints">
+<details>
+          <summary>Tool use: **read_lints** • Read lints for 2 files</summary>
+      
+Lint paths:
+
+- `package.json`
+- `src/provider.ts`
+
+Lint results
+
+Lint errors for `package.json`
+
+
+| Message | Range | Severity |
+|-------|-------|----------|
+| 对于面向引擎版本 ^1.75 的扩展，可以删除此激活事件，因为 VS Code将从 package.json 贡献声明自动生成这些事件。 | 16:3-16:21 | DIAGNOSTIC_SEVERITY_INFORMATION |
 
 
 </details>
@@ -920,6 +1079,28 @@ Status: **loading**
 ---
 
 
+
+---
+
+
+所有 `gitlab.mrt` 和 `gitlab-mrt` 已替换为 `create-mr`。更改如下：
+
+1. **package.json**：
+   - `"onView:gitlab.mrt"` → `"onView:create-mr"`
+   - `"gitlab-mrt"` → `"create-mr"`（views 和 viewsContainers 的 id）
+   - `"id": "gitlab.mrt"` → `"id": "create-mr"`
+   - `"title": "Gitlab Mrt"` → `"title": "Create MR"`
+   - `"when": "view == gitlab.mrt"` → `"when": "view == create-mr"`
+
+2. **src/provider.ts**：
+   - `viewType: string = 'gitlab.mrt'` → `'create-mr'`
+
+3. **README.md**：
+   - `# gitlab-mrt README` → `# create-mr README`
+
+所有用户可见的标识符已从 `gitlabmrt`/`gitlab.mrt`/`gitlab-mrt` 统一改为 `create-mr`。代码检查通过，无语法错误。
+
+注意：代码中仍保留 "GitLab" 作为产品名称（如 "GitLab API"、"GitLab.com"），这些是产品名称，通常不需要修改。
 
 ---
 

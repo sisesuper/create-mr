@@ -2,7 +2,7 @@
 	"name": "create-mr",
 	"displayName": "create mr",
 	"description": "Create MRs in Gitlab from VS Code",
-	"publisher": "yanhao",
+	"publisher": "YanHao66",
 	"version": "0.0.1",
 	"icon": "src/assets/icon.png",
 	"repository": "https://github.com/sisesuper/create-mr.git",
