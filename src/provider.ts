@@ -9,7 +9,7 @@ import { validateForm, info, log, withProgress } from './utils';
 let n = 0;
 export default class MergeProvider implements vscode.WebviewViewProvider {
 
-    public static readonly viewType: string = 'gitlab.mrt';
+    public static readonly viewType: string = 'create-mr';
     private _view?: vscode.WebviewView;
     private git?: GitExtensionWrap;
     private api?: Api;

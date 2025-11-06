@@ -13,24 +13,24 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onView:gitlab.mrt"
+		"onView:create-mr"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
-		"views": {
-			"gitlab-mrt": [
-				{
-					"type": "webview",
-					"id": "gitlab.mrt",
-					"name": "New Merge Request"
-				}
-			]
-		},
+	"views": {
+		"create-mr": [
+			{
+				"type": "webview",
+				"id": "create-mr",
+				"name": "New Merge Request"
+			}
+		]
+	},
 		"viewsContainers": {
 			"activitybar": [
 				{
-					"id": "gitlab-mrt",
-					"title": "Gitlab Mrt",
+					"id": "create-mr",
+					"title": "Create MR",
 					"icon": "src/assets/gitlab.svg"
 				}
 			]
@@ -54,15 +54,15 @@
 			"view/title": [
 				{
 					"command": "create-mr.repository",
-					"when": "view == gitlab.mrt"
+					"when": "view == create-mr"
 				},
 				{
 					"command": "create-mr.merge.requests",
-					"when": "view == gitlab.mrt"
+					"when": "view == create-mr"
 				},
 				{
 					"command": "create-mr.refresh",
-					"when": "view == gitlab.mrt",
+					"when": "view == create-mr",
 					"group": "navigation"
 				}
 			]

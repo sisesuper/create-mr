@@ -1,4 +1,4 @@
-# gitlab-mrt README
+# create-mr README
 
 Gitlab Merge Request Helper fo VS Code.
 
