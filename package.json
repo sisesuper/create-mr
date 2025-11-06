@@ -5,7 +5,7 @@
 	"publisher": "yanhao",
 	"version": "0.0.1",
 	"icon": "src/assets/icon.png",
-	"repository": "https://gitee.com/sisesuper/create-mr.git",
+	"repository": "https://github.com/sisesuper/create-mr.git",
 	"engines": {
 		"vscode": "^1.61.1"
 	},
